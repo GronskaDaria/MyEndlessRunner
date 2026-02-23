@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 2f;
+    public float playerSpeed = 8f;
     public float horizontalSpeed = 3f;
-    public float rightLimit = 7.5f;
-    public float leftLimit = -7.5f;
-
+    public float rightLimit = 5.5f;
+    public float leftLimit = -5.5f;
+    public SpawnManager spawnManager;
 
 
     void Update()
@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(Vector3.right*horizontalSpeed*Time.deltaTime, Space.World);
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        spawnManager.SpawnTriggerEntered();
     }
 } 
   
