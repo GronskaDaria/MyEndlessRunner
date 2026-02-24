@@ -12,6 +12,7 @@ public class CollectableRotate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         coinFX.Play();
+        Master.coinCount++;
         this.gameObject.SetActive(false);
         Console.WriteLine("coin");
     }
