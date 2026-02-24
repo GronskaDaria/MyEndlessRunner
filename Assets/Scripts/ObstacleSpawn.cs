@@ -9,7 +9,7 @@ public class ObstacleSpawn : MonoBehaviour
     private List<GameObject> spawnedObstacles = new List<GameObject>();
 
     private int obstacleAmount = 15;
-    private float obstacleDistance = 19.3f;
+    private float obstacleDistance = 12.3f;
     private float xPozRight = 3.5f;
     private float xPozCenter = 0f;
     private float xPozLeft = -3.5f;
@@ -30,7 +30,7 @@ public class ObstacleSpawn : MonoBehaviour
         RemoveOldObstacle();
     }
 
-    private void SpawnObstacle()
+    public void SpawnObstacle()
     {
         GameObject carPrefab = obstacles [Random.Range(0, obstacles.Count)];
 

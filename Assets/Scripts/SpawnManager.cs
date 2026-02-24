@@ -4,12 +4,12 @@ public class SpawnManager : MonoBehaviour
 {
     RoadSpawner roadSpawner;
     PlotSpawner plotSpawner;
-    CarSpawn carSpawner;
+    ObstacleSpawn obstacleSpawn;
     void Start()
     {
         roadSpawner = GetComponent<RoadSpawner>();
         plotSpawner= GetComponent<PlotSpawner>();
-        carSpawner = GetComponent<CarSpawn>();
+        obstacleSpawn=GetComponent<ObstacleSpawn>();
     }
 
     void Update()
@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
     {
         roadSpawner.MoveRoad();
         plotSpawner.SpawnPlot();
-        plotSpawner.SpawnPlot();
+        obstacleSpawn.SpawnObstacle();
 
     }
 }
