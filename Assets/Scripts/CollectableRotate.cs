@@ -14,6 +14,5 @@ public class CollectableRotate : MonoBehaviour
         coinFX.Play();
         Master.coinCount++;
         this.gameObject.SetActive(false);
-        Console.WriteLine("coin");
     }
 }
