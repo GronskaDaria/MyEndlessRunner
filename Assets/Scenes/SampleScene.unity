@@ -319,11 +319,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ac6f3f091395f449981b49574e232a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 8
+  spawnManager: {fileID: 710382534}
+  rb: {fileID: 417976411}
+  forwardSpeed: 8
   horizontalSpeed: 3
   rightLimit: 5.5
   leftLimit: -5.5
-  spawnManager: {fileID: 710382534}
+  canMove: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundDistance: 0.2
+  jumpForce: 6
 --- !u!54 &417976411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -346,10 +353,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!1 &426154314 stripped
 GameObject:

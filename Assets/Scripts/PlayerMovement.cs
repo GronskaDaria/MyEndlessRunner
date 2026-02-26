@@ -2,34 +2,48 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 8f;
+    public SpawnManager spawnManager;
+    public Rigidbody rb;
+
+    public float forwardSpeed = 8f;
     public float horizontalSpeed = 3f;
     public float rightLimit = 5.5f;
     public float leftLimit = -5.5f;
-    public SpawnManager spawnManager;
     public bool canMove = true;
 
+    public LayerMask groundLayer;
+    public float groundDistance = 0.2f;
+    private bool isGrounded;
+    public float jumpForce = 6f;
+
+    void Start()
+    {
+        rb=GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        if (!canMove)
+        {
+            return;
+        }
+        // ruch do przodu
+        Vector3 forwardMove = Vector3.forward*forwardSpeed*Time.fixedDeltaTime;
+        rb.MovePosition(rb.position+forwardMove);
+
+        // ruch w bok
+        float horizontal = Input.GetAxis("Horizontal");
+        Vector3 sideMove = Vector3.right*horizontal*horizontalSpeed*Time.fixedDeltaTime;
+        rb.MovePosition(rb.position+sideMove);
+    }
 
     void Update()
     {
-        if (!canMove) return;
+        isGrounded=Physics.Raycast(transform.position, Vector3.down, 0.2f);
 
-
-        transform.Translate(Vector3.forward * playerSpeed*Time.deltaTime, Space.World);
-        if (Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow)))
+        if (Input.GetKeyDown(KeyCode.Space)&&isGrounded)
         {
-            if (this.gameObject.transform.position.x>leftLimit)
-            { 
-                transform.Translate(Vector3.left*horizontalSpeed*Time.deltaTime, Space.World);
-            }
-            
-        }
-        if (Input.GetKey(KeyCode.D)||(Input.GetKey(KeyCode.RightArrow)))
-        {
-            if (this.gameObject.transform.position.x<rightLimit)
-            {
-                transform.Translate(Vector3.right*horizontalSpeed*Time.deltaTime, Space.World);
-            }
+            rb.linearVelocity=new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
         }
     }
 
