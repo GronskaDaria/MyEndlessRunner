@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3296399270649809737}
   - component: {fileID: 1878267395584247020}
   - component: {fileID: 4464199140379701286}
-  - component: {fileID: 1479573570009361575}
+  - component: {fileID: 7253740039478536637}
+  - component: {fileID: 6177666417066348502}
   m_Layer: 0
   m_Name: Obstacle_01
   m_TagString: Untagged
@@ -87,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1479573570009361575
-MeshCollider:
+--- !u!136 &7253740039478536637
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +103,24 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4344726353085231292, guid: 72fe9f7bf39fa0d4aaa33c14ac14902c, type: 3}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.39578417
+  m_Height: 1.3454665
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6727311, z: -0.000000014901161}
+--- !u!114 &6177666417066348502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807142278202659315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d0e2f9d913a9149aae0854807da279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}

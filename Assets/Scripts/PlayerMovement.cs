@@ -7,10 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public float rightLimit = 5.5f;
     public float leftLimit = -5.5f;
     public SpawnManager spawnManager;
+    public bool canMove = true;
 
 
     void Update()
     {
+        if (!canMove) return;
+
+
         transform.Translate(Vector3.forward * playerSpeed*Time.deltaTime, Space.World);
         if (Input.GetKey(KeyCode.A)||(Input.GetKey(KeyCode.LeftArrow)))
         {
@@ -31,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        spawnManager.SpawnTriggerEntered();
+        if (other.CompareTag("SpawnTrigger"))
+        {
+            spawnManager.SpawnTriggerEntered();
+        }
     }
 } 
   
