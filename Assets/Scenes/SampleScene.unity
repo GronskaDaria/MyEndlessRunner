@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 417976406}
   - component: {fileID: 417976410}
   - component: {fileID: 417976411}
+  - component: {fileID: 417976412}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -321,8 +322,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 710382534}
   rb: {fileID: 417976411}
+  animator: {fileID: 900397453}
   forwardSpeed: 8
-  horizontalSpeed: 3
+  horizontalSpeed: 6
   rightLimit: 5.5
   leftLimit: -5.5
   canMove: 1
@@ -358,6 +360,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!95 &417976412
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417976405}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95f0e7396f7d419468ad2ace4fce5a24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &426154314 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1926286294933055470, guid: 7b7e1d29ab14f6947979908850b38393, type: 3}
@@ -402,7 +426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 158.4, y: -66.5}
+  m_AnchoredPosition: {x: 158.39844, y: -66.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435959999
@@ -1031,22 +1055,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &900397454
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900397451}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 839ab34e11e2aac49a3356c536a8021e, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1001 &918362781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1403,9 +1411,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91132284e63a7f442bbb4986ad1a37e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 900397454}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91132284e63a7f442bbb4986ad1a37e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 900397453}
