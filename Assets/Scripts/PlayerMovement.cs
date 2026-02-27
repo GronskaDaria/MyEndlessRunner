@@ -1,10 +1,15 @@
+using System.Collections;
 using UnityEngine;
+using static Camera;
 
 public class PlayerMovement : MonoBehaviour
 {
     public SpawnManager spawnManager;
     public Rigidbody rb;
     public Animator animator;
+    public Camera camShake;
+    public GameObject Fade;
+    [SerializeField] AudioSource collisionFX;
 
     public float forwardSpeed = 8f;
     public float horizontalSpeed = 6f;
@@ -54,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.CompareTag("Obstacle"))
         {
-                animator.SetBool("IsStumbled", true);
+            StartCoroutine(OnEnterEnd());
         }
     }
 
@@ -75,5 +80,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsRunning", isRunning);
     }
 
+    IEnumerator OnEnterEnd() 
+    {
+        animator.SetBool("IsStumbled", true);
+        collisionFX.Play();
+        StartCoroutine(camShake.Shake(0.15f, 0.15f));
+        yield return new WaitForSeconds(3);
+        Fade.SetActive(true);
+    }
 } 
   

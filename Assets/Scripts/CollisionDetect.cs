@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CollisionDetect : MonoBehaviour
 {
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -11,6 +12,7 @@ public class CollisionDetect : MonoBehaviour
             if (movement!=null)
             {
                 movement.canMove=false;
+                
             }
         }
     }
