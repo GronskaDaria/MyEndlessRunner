@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using static Camera;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -60,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             StartCoroutine(OnEnterEnd());
-        }
+
+                   }
     }
 
     private void AnimationJump()
@@ -87,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(camShake.Shake(0.15f, 0.15f));
         yield return new WaitForSeconds(3);
         Fade.SetActive(true);
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(0);
     }
 } 
   
